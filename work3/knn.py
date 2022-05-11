@@ -134,5 +134,5 @@ class KNN:
         for i in range(num_test):
             index_k_nearest_x = np.argsort(dists[i])[:self.k]
             k_nearest_x_y = [self.train_y[x] for x in index_k_nearest_x]
-            pred[i] = max(k_nearest_x_y)
+            pred[i] = max(set(k_nearest_x_y), key=k_nearest_x_y.count)
         return pred
